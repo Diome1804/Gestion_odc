@@ -1,0 +1,155 @@
+{
+    "users": [
+        {
+            "id": "ADM-001",
+            "matricule": "ADM001",
+            "email": "lex@gmail.com",
+            "password": "lex",
+            "role": "admin",
+            "nom": " Abdoulaye Diome"
+        }
+    ],
+    "promotions": [
+        {
+            "nom": "Promo 2",
+            "date_debut": "12\/03\/2017",
+            "date_fin": "06\/12\/2017",
+            "photo": "promo_68004f7fa44b1.png",
+            "statut": "active",
+            "nbr_etudiants": 0,
+            "referentiels": [
+                "Dev data"
+            ],
+            "id": "promo_68004f7fa4555"
+        },
+        {
+            "nom": "promotion 3",
+            "date_debut": "14\/01\/2018",
+            "date_fin": "06\/11\/2018",
+            "photo": "promo_6800fcb475a40.png",
+            "statut": "inactive",
+            "nbr_etudiants": 0,
+            "referentiels": [
+                "DEV DATA "
+            ],
+            "id": "promo_6800fcb475b85"
+        },
+        {
+            "nom": "Promotion 5",
+            "date_debut": "12\/03\/2017",
+            "date_fin": "06\/12\/2017",
+            "photo": "promo_68028be4ef936.png",
+            "statut": "inactive",
+            "nbr_etudiants": 0,
+            "referentiels": [
+                "DEV WEB"
+            ],
+            "id": "promo_68028be4ef9d7"
+        },
+        {
+            "nom": "Promotion 1",
+            "date_debut": "12\/02\/2025",
+            "date_fin": "13\/12\/2025",
+            "photo": "promo_6803b134a7d3e.png",
+            "statut": "inactive",
+            "nbr_etudiants": 0,
+            "referentiels": [
+                "DEV DATA"
+            ],
+            "id": "promo_6803b134a7dcc"
+        },
+        {
+            "nom": "Promotion 6",
+            "date_debut": "13\/02\/2024",
+            "date_fin": "07\/12\/2024",
+            "photo": "promo_6804470975f82.png",
+            "statut": "inactive",
+            "nbr_etudiants": 0,
+            "referentiels": [
+                "DEV WEB"
+            ],
+            "id": "promo_6804470976018"
+        },
+        {
+            "nom": "Promotion7",
+            "date_debut": "12\/01\/2017",
+            "date_fin": "12\/01\/2020",
+            "photo": "promo_680f95d0397ec.png",
+            "statut": "inactive",
+            "nbr_etudiants": 0,
+            "referentiels": [
+                "developpement web"
+            ],
+            "id": "promo_680f95d0398c1"
+        }
+    ],
+    "referentiels": [
+        {
+            "nom": "DEV WEB",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "photo": "dev.jpeg",
+            "id": "ref_6800fcb475a40"
+        },
+        {
+            "nom": "REF DIG",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "photo": "ref.jpeg",
+            "id": "ref_68028be4ef936"
+        },
+        {
+            "nom": "DEV DATA",
+            "description": "dblldlskdmcmmsskwiwixs;e;mvfm",
+            "photo": "data.jpeg",
+            "capacite": "30",
+            "sessions": "1 session",
+            "id": "ref_680557bc94d10"
+        },
+        {
+            "nom": "AWS",
+            "description": "dblldlskdmcmmsskwiwixs;e;mvfm",
+            "photo": "aws.jpeg",
+            "capacite": "30",
+            "sessions": "1 session",
+            "id": "ref_68056277cfe1f"
+        },
+        {
+            "nom": "Dev Web ",
+            "description": "wa def web ",
+            "photo": "ref_6810e411b1eec.png",
+            "capacite": "30",
+            "sessions": "1 session",
+            "id": "ref_6810e411b1fe4"
+        },
+        {
+            "nom": "qsdfgh",
+            "description": "wxcvbn,",
+            "photo": "ref_68110d5cc8c5d.png",
+            "capacite": "30",
+            "sessions": "1 session",
+            "id": "ref_68110d5cc8d27"
+        }
+    ],
+    "apprenants": [
+        {
+            "id": "APP-001",
+            "nom": "Dupont",
+            "prenom": "Jean",
+            "email": "jean.dupont@example.com",
+            "promotion": "Promo 2"
+        },
+        {
+            "id": "APP-002",
+            "nom": "Durand",
+            "prenom": "Marie",
+            "email": "marie.durand@example.com",
+            "promotion": "Promo 2"
+        },
+        {
+            "id": "APP-003",
+            "nom": "Martin",
+            "prenom": "Paul",
+            "email": "paul.martin@example.com",
+            "promotion": "Promo 3"
+        }
+    ]
+}
