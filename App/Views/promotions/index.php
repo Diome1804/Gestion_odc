@@ -39,7 +39,7 @@ $viewMode = $_GET['view'] ?? 'grid';
             <div class="stat-card">
                 <div class="stat-info">
                     <h2>0</h2>
-                    <p>Apprenants</p>
+                    <p>Apprenantss</p>
                 </div>
                 <div class="stat-icon">
                     <i class="fas fa-user-graduate"></i>
