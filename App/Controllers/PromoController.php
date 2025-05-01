@@ -50,15 +50,20 @@ function createPromotion()
     try {
         $data = $_POST;
         $files = $_FILES;
+
+        // Validation des données
         $errors = validation\validate_promotion($data, $files);  
         if (!empty($errors)) {
             session_set('validation_errors', $errors);
             session_set('old_input', $data);
-            App\redirect('/promotions/create'); // Redirection corrigée
+            App\redirect('/promotions/create');
             exit;
         }
+
+        // Téléchargement de la photo
         $photo_path = handle_file_upload($files['photo']);
     
+        // Ajout de la promotion
         $model = require __DIR__.'/../Models/Promo.model.php';
         $model[Promotion_Model_Key::ADD->value]([
             PromotionAttribute::NAME->value => $data['nom'],
@@ -69,20 +74,16 @@ function createPromotion()
             PromotionAttribute::STUDENTS_NB->value => 0,
             PromotionAttribute::REFERENTIELS->value => [$data['referentiels']],
         ]);
+
+        // Nettoyage des sessions et redirection
         session_remove('validation_errors');
         session_remove('old_input');
-        if (!session_has('success_message')) {
-            session_set('success_message', ['content' => SuccessCode::PROMOTION_CREATED->value]);
-            App\redirect('/promotions');
-        } else {
-            error_log('Succès déjà enregistré, pas de redirection');
-        }    
-        error_log("Redirection après création vers : /promotions");
+        session_set('success_message', ['content' => SuccessCode::PROMOTION_CREATED->value]);
         App\redirect('/promotions');
-    } catch (Exception $e) 
-    {
+    } catch (Exception $e) {
+        error_log("Erreur lors de la création de la promotion : " . $e->getMessage());
         session_set('error_message', $e->getMessage());
-        App\redirect('/promotions/create'); // Redirection corrigée
+        App\redirect('/promotions/create');
     }
 }
    
@@ -181,16 +182,24 @@ function get_promotions_by_status($status) {
 }
 
 function handle_file_upload($file) {
+    error_log("Début du téléchargement du fichier : " . print_r($file, true));
+
     $upload_dir = __DIR__.'/../../public/uploads/promotions/';
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0755, true);
     }
+
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        throw new \RuntimeException('Erreur lors du téléchargement du fichier : ' . $file['error']);
+    }
+
     $filename = uniqid('promo_').'.'.pathinfo($file['name'], PATHINFO_EXTENSION);
     $target_path = $upload_dir.$filename;
-    
+
     if (!move_uploaded_file($file['tmp_name'], $target_path)) {
-        throw new RuntimeException('Erreur lors du téléchargement du fichier');
+        throw new RuntimeException('Erreur lors du déplacement du fichier');
     }
-    
+
+    error_log("Fichier téléchargé avec succès : " . $target_path);
     return $filename;
 }

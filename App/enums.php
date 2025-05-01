@@ -21,6 +21,7 @@ enum UserModelKey:string{
     case UPDATE_PASSWORD = 'update_password';
     case GET_BY_ID = 'get_by_id';
     case GET_USER_INDEX = 'get_user_index';
+    case FIND_BY_LOGIN = 'findByLogin';
 }
 enum JsonOperation: string{
     case DECODE = 'decode';

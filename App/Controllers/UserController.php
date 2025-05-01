@@ -82,7 +82,7 @@ function forgotPassword() {
                 throw new Exception('password_mismatch');     
             }   
             $userModel = require __DIR__.'/../Models/User.model.php';
-            $user = findUserByLogin($login);
+            $user = $userModel[UserModelKey::FIND_BY_LOGIN->value]($login);
             
             if (!$user) {
                 throw new Exception('user_not_found');
