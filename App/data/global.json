@@ -81,6 +81,18 @@
                 "developpement web"
             ],
             "id": "promo_680f95d0398c1"
+        },
+        {
+            "nom": "Promotion8",
+            "date_debut": "12\/01\/2017",
+            "date_fin": "11\/02\/2018",
+            "photo": "promo_6813d8d755fa5.png",
+            "statut": "inactive",
+            "nbr_etudiants": 0,
+            "referentiels": [
+                "developpement web"
+            ],
+            "id": "promo_6813d8d756050"
         }
     ],
     "referentiels": [
@@ -127,6 +139,14 @@
             "capacite": "30",
             "sessions": "1 session",
             "id": "ref_68110d5cc8d27"
+        },
+        {
+            "nom": "ref dig",
+            "description": "test",
+            "photo": "ref_6813d8fa5e848.png",
+            "capacite": "30",
+            "sessions": "1 session",
+            "id": "ref_6813d8fa5e8fb"
         }
     ],
     "apprenants": [
