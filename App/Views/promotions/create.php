@@ -57,6 +57,12 @@
                     value="<?= htmlspecialchars(get_old_input('referentiels')) ?>">
             </div>
 
+            <!-- Champ Photo -->
+            <div class="form-group">
+                <label for="promotionPhoto">Photo de la promotion</label>
+                <input type="file" id="promotionPhoto" name="photo" class="form-control">
+            </div>
+
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Créer la promotion</button>
                 <a href="/promotions" class="btn btn-secondary">Annuler</a>

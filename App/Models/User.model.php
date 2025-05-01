@@ -1,5 +1,5 @@
 <?php
-// App/Models/User.model.php
+
 
 namespace App\Models;
 
@@ -42,7 +42,6 @@ return [
         });
     },
    
-
     UserModelKey::UPDATE_PASSWORD->value => function($userId, $newPassword) {
         $model = require __DIR__.'/Model.php';
         $users = $model[ModelFunction::GET_ALL->value](DataKey::USERS);
@@ -70,6 +69,25 @@ return [
     
         return $model[ModelFunction::SAVE->value](DataKey::USERS, $users);
     },
+
+    UserModelKey::FIND_BY_LOGIN->value => function(string $login) {
+        $model = require __DIR__.'/Model.php';
+        $users = $model[ModelFunction::GET_ALL->value](DataKey::USERS);
     
+        // Vérification des données retournées
+        if (!is_array($users) || !isset($users['users']) || !is_array($users['users'])) {
+            error_log("Données invalides pour USERS : " . print_r($users, true));
+            return null;
+        }
     
- ];
+        // Recherche de l'utilisateur par login (matricule ou email)
+        $filtered = array_filter($users['users'], function($u) use ($login) {
+            return isset($u['matricule'], $u['email']) 
+                && ($u['matricule'] === $login || $u['email'] === $login);
+        });
+    
+        $foundUser = reset($filtered);
+        error_log("Utilisateur trouvé : " . print_r($foundUser, true));
+        return $foundUser ?: null; // Retourne le premier utilisateur trouvé ou null
+    },
+];
